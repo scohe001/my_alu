@@ -1,0 +1,29 @@
+Command line:
+   half_subtractor_tb_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  36709
+
+Mon Oct  5 15:19:59 2015
+
+
+ Elaboration Time: 0.05 sec
+
+ Current Memory Usage: 224.67 Meg
+
+ Total Signals          : 5
+ Total Nets             : 5
+ Total Signal Drivers   : 3
+ Total Blocks           : 2
+ Total Primitive Blocks : 2
+ Total Processes        : 2
+ Total Traceable Variables  : 9
+ Total Scalar Nets and Variables : 366
+Total Line Count : 25
+
+ Total Simulation Time: 0.1 sec
+
+ Current Memory Usage: 302.268 Meg
+
+Mon Oct  5 15:20:43 2015
+

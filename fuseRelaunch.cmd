@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "secureip" -o "/home/csmajs/scohe001/my_alu/half_subtractor_tb_isim_beh.exe" -prj "/home/csmajs/scohe001/my_alu/half_subtractor_tb_beh.prj" "work.half_subtractor_tb" 

@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2015-10-05T14:31:34</DateModified>
+  <DateModified>2015-10-05T15:12:48</DateModified>
   <ModuleName>my_alu</ModuleName>
-  <SummaryTimeStamp>2015-10-05T14:31:22</SummaryTimeStamp>
+  <SummaryTimeStamp>2015-10-05T15:08:42</SummaryTimeStamp>
   <SavedFilePath>/home/csmajs/scohe001/my_alu/iseconfig/my_mod.xreport</SavedFilePath>
   <ImplementationReportsDirectory>/home/csmajs/scohe001/my_alu</ImplementationReportsDirectory>
   <DateInitialized>2015-10-05T14:31:34</DateInitialized>

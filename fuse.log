@@ -1,0 +1,21 @@
+Running: /opt/Xilinx/14.6/ISE_DS/ISE/bin/lin64/unwrapped/fuse -intstyle ise -incremental -lib secureip -o /home/csmajs/scohe001/my_alu/half_subtractor_tb_isim_beh.exe -prj /home/csmajs/scohe001/my_alu/half_subtractor_tb_beh.prj work.half_subtractor_tb 
+ISim P.68d (signature 0xfbc00daa)
+Number of CPUs detected in this system: 8
+Turning on mult-threading, number of parallel sub-compilation jobs: 16 
+Determining compilation order of HDL files
+Parsing VHDL file "/home/csmajs/scohe001/my_alu/my_test.vhd" into library work
+Starting static elaboration
+WARNING:HDLCompiler:89 - "/home/csmajs/scohe001/my_alu/my_test.vhd" Line 37: <half_subtractor> remains a black-box since it has no binding entity.
+Completed static elaboration
+Fuse Memory Usage: 94248 KB
+Fuse CPU Usage: 2120 ms
+WARNING:Simulator:648 - "/home/csmajs/scohe001/my_alu/my_test.vhd" Line 37. Instance half_subtractor is unbound
+Compiling package standard
+Compiling package std_logic_1164
+Compiling architecture behavior of entity half_subtractor_tb
+Time Resolution for simulation is 1ps.
+Compiled 3 VHDL Units
+Built simulation executable /home/csmajs/scohe001/my_alu/half_subtractor_tb_isim_beh.exe
+Fuse Memory Usage: 1182184 KB
+Fuse CPU Usage: 2320 ms
+GCC CPU Usage: 250 ms
