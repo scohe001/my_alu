@@ -32,7 +32,7 @@ use ieee.numeric_std.all;
 
 entity my_alu is
 
-    generic(n: natural :=2);
+    generic(n: natural :=8);
     Port ( A : in  STD_LOGIC_VECTOR(n-1 downto 0);
            B : in  STD_LOGIC_VECTOR(n-1 downto 0);
            opcode : in  STD_LOGIC_VECTOR (2 downto 0);
@@ -44,48 +44,49 @@ end my_alu;
 
 architecture Behavioral of my_alu is
 
-signal temp: STD_LOGIC_VECTOR(n downto 0);
-
 begin
 
     process( A, B, opcode)
+	 
+	 variable temp : STD_LOGIC_VECTOR(n downto 0);
+	 
     begin
     
         case opcode is
             when "000" => --Unsigned Add
-                temp <= STD_LOGIC_VECTOR(unsigned('0' & A) + unsigned('0' & B));
+                temp := STD_LOGIC_VECTOR(unsigned('0' & A) + unsigned('0' & B));
                 result <= temp(n-1 downto 0);
                 carryout <= temp(n);
                 
             when "001" => --Signed Add
-                temp <= STD_LOGIC_VECTOR(signed('0' & A) + signed('0' & B));
+                temp := STD_LOGIC_VECTOR(signed('0' & A) + signed('0' & B));
                 result <= temp(n-1 downto 0);
                 carryout <= temp(n);
                 
             when "010" => --Unsigned Sub
-                temp <= STD_LOGIC_VECTOR(unsigned('0' & A) + (not(unsigned('0' & B))) + 1);
+                temp := STD_LOGIC_VECTOR(unsigned('0' & A) + (not(unsigned('0' & B))) + 1);
                 result <= temp(n-1 downto 0);
                 carryout <= temp(n);
                 
             when "011" => --Signed Sub
-                temp <= STD_LOGIC_VECTOR(signed('0' & A) + (not(signed('0' & B))) + 1);
+                temp := STD_LOGIC_VECTOR(signed('0' & A) + (not(signed('0' & B))) + 1);
                 result <= temp(n-1 downto 0);
                 carryout <= temp(n);
                 
             when "100" => --Bit-wise AND
-                temp <= ('0' & A) AND ('0' & B);
+                temp := ('0' & A) AND ('0' & B);
                 result <= A AND B;
                 
             when "101" => --Bit-wise OR
-                temp <= ('0' & A) OR ('0' & B);
+                temp := ('0' & A) OR ('0' & B);
                 result <= A OR B;
                 
             when "110" => --Bit-wise XOR
-                temp <= ('0' & A) XOR ('0' & B);
+                temp := ('0' & A) XOR ('0' & B);
                 result <= A XOR B;
                 
             when "111" => --Divide A by 2 (right shift)
-                temp <= STD_LOGIC_VECTOR(shift_right(unsigned('0' & A), 1));
+                temp := STD_LOGIC_VECTOR(shift_right(unsigned('0' & A), 1));
                 result <= temp(n-1 downto 0);
 					 
 				when others =>
@@ -93,7 +94,7 @@ begin
                 
         end case;
             
-        if temp = X"0000" then
+        if temp = "000000000" then
             zero <= '1';
         else
             zero <= '0';

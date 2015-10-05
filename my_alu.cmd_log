@@ -10,3 +10,8 @@ xst -intstyle ise -ifn "/home/csmajs/scohe001/my_alu/my_alu.xst" -ofn "/home/csm
 xst -intstyle ise -ifn "/home/csmajs/scohe001/my_alu/my_alu.xst" -ofn "/home/csmajs/scohe001/my_alu/my_alu.syr" 
 xst -intstyle ise -ifn "/home/csmajs/scohe001/my_alu/my_alu.xst" -ofn "/home/csmajs/scohe001/my_alu/my_alu.syr" 
 xst -intstyle ise -ifn "/home/csmajs/scohe001/my_alu/my_alu.xst" -ofn "/home/csmajs/scohe001/my_alu/my_alu.syr" 
+xst -intstyle ise -ifn "/home/csmajs/scohe001/my_alu/my_alu.xst" -ofn "/home/csmajs/scohe001/my_alu/my_alu.syr" 
+xst -intstyle ise -ifn "/home/csmajs/scohe001/my_alu/my_alu.xst" -ofn "/home/csmajs/scohe001/my_alu/my_alu.syr" 
+xst -intstyle ise -ifn "/home/csmajs/scohe001/my_alu/my_alu.xst" -ofn "/home/csmajs/scohe001/my_alu/my_alu.syr" 
+xst -intstyle ise -ifn "/home/csmajs/scohe001/my_alu/my_alu.xst" -ofn "/home/csmajs/scohe001/my_alu/my_alu.syr" 
+xst -intstyle ise -ifn "/home/csmajs/scohe001/my_alu/my_alu.xst" -ofn "/home/csmajs/scohe001/my_alu/my_alu.syr" 
