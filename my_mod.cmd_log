@@ -1,0 +1,3 @@
+xst -intstyle ise -ifn "/home/csmajs/scohe001/my_alu/my_mod.xst" -ofn "/home/csmajs/scohe001/my_alu/my_mod.syr" 
+xst -intstyle ise -ifn "/home/csmajs/scohe001/my_alu/my_mod.xst" -ofn "/home/csmajs/scohe001/my_alu/my_mod.syr" 
+xst -intstyle ise -ifn "/home/csmajs/scohe001/my_alu/my_mod.xst" -ofn "/home/csmajs/scohe001/my_alu/my_mod.syr" 
