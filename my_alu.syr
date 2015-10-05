@@ -5,14 +5,14 @@ Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.07 secs
+Total CPU time to Xst completion: 0.12 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.07 secs
+Total CPU time to Xst completion: 0.12 secs
  
 --> 
 Reading design: my_alu.prj
@@ -117,7 +117,7 @@ Parsing architecture <Behavioral> of entity <my_alu>.
 =========================================================================
 
 Elaborating entity <my_alu> (architecture <Behavioral>) with generics from library <work>.
-INFO:HDLCompiler:679 - "/home/csmajs/scohe001/my_alu/my_mod.vhd" Line 92. Case statement is complete. others clause is never selected
+INFO:HDLCompiler:679 - "/home/csmajs/scohe001/my_alu/my_mod.vhd" Line 107. Case statement is complete. others clause is never selected
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -126,16 +126,18 @@ INFO:HDLCompiler:679 - "/home/csmajs/scohe001/my_alu/my_mod.vhd" Line 92. Case s
 Synthesizing Unit <my_alu>.
     Related source file is "/home/csmajs/scohe001/my_alu/my_mod.vhd".
         n = 8
-    Found 9-bit adder for signal <GND_4_o_GND_4_o_add_1_OUT> created at line 62.
-    Found 9-bit adder for signal <n0049> created at line 72.
+    Found 9-bit adder for signal <GND_4_o_GND_4_o_add_1_OUT> created at line 63.
+    Found 9-bit adder for signal <n0066> created at line 81.
     Found 9-bit adder for signal <GND_4_o_GND_4_o_add_7_OUT> created at line 1253.
     Found 9-bit 6-to-1 multiplexer for signal <temp> created at line 55.
     Found 8-bit 6-to-1 multiplexer for signal <result> created at line 55.
+    Found 1-bit 4-to-1 multiplexer for signal <opcode[2]_overflow_Mux_21_o> created at line 55.
+WARNING:Xst:737 - Found 1-bit latch for signal <overflow>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 1-bit latch for signal <carryout>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
     Summary:
 	inferred   3 Adder/Subtractor(s).
-	inferred   1 Latch(s).
-	inferred   3 Multiplexer(s).
+	inferred   2 Latch(s).
+	inferred   4 Multiplexer(s).
 Unit <my_alu> synthesized.
 
 =========================================================================
@@ -144,10 +146,11 @@ HDL Synthesis Report
 Macro Statistics
 # Adders/Subtractors                                   : 3
  9-bit adder                                           : 3
-# Latches                                              : 1
- 1-bit latch                                           : 1
-# Multiplexers                                         : 3
+# Latches                                              : 2
+ 1-bit latch                                           : 2
+# Multiplexers                                         : 4
  1-bit 2-to-1 multiplexer                              : 1
+ 1-bit 4-to-1 multiplexer                              : 1
  8-bit 6-to-1 multiplexer                              : 1
  9-bit 6-to-1 multiplexer                              : 1
 # Xors                                                 : 2
@@ -168,8 +171,9 @@ Macro Statistics
 # Adders/Subtractors                                   : 2
  9-bit adder                                           : 1
  9-bit adder carry in                                  : 1
-# Multiplexers                                         : 3
+# Multiplexers                                         : 4
  1-bit 2-to-1 multiplexer                              : 1
+ 1-bit 4-to-1 multiplexer                              : 1
  8-bit 6-to-1 multiplexer                              : 1
  9-bit 6-to-1 multiplexer                              : 1
 # Xors                                                 : 2
@@ -215,24 +219,24 @@ Top Level Output File Name         : my_alu.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 71
+# BELS                             : 73
 #      GND                         : 1
 #      INV                         : 1
 #      LUT2                        : 16
-#      LUT3                        : 1
+#      LUT3                        : 2
 #      LUT4                        : 1
-#      LUT5                        : 16
+#      LUT5                        : 17
 #      LUT6                        : 1
 #      MUXCY                       : 16
 #      VCC                         : 1
 #      XORCY                       : 17
-# FlipFlops/Latches                : 1
-#      LD                          : 1
+# FlipFlops/Latches                : 2
+#      LD                          : 2
 # Clock Buffers                    : 1
 #      BUFG                        : 1
-# IO Buffers                       : 29
+# IO Buffers                       : 30
 #      IBUF                        : 19
-#      OBUF                        : 10
+#      OBUF                        : 11
 
 Device utilization summary:
 ---------------------------
@@ -241,20 +245,20 @@ Selected Device : 7a100tcsg324-3
 
 
 Slice Logic Utilization: 
- Number of Slice LUTs:                   36  out of  63400     0%  
-    Number used as Logic:                36  out of  63400     0%  
+ Number of Slice LUTs:                   38  out of  63400     0%  
+    Number used as Logic:                38  out of  63400     0%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:     36
-   Number with an unused Flip Flop:      36  out of     36   100%  
-   Number with an unused LUT:             0  out of     36     0%  
-   Number of fully used LUT-FF pairs:     0  out of     36     0%  
+ Number of LUT Flip Flop pairs used:     38
+   Number with an unused Flip Flop:      38  out of     38   100%  
+   Number with an unused LUT:             0  out of     38     0%  
+   Number of fully used LUT-FF pairs:     0  out of     38     0%  
    Number of unique control sets:         1
 
 IO Utilization: 
  Number of IOs:                          30
- Number of bonded IOBs:                  29  out of    210    13%  
-    IOB Flip Flops/Latches:               1
+ Number of bonded IOBs:                  30  out of    210    14%  
+    IOB Flip Flops/Latches:               2
 
 Specific Feature Utilization:
  Number of BUFG/BUFGCTRLs:                1  out of     32     3%  
@@ -280,7 +284,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-opcode<2>                          | IBUF+BUFG              | 1     |
+opcode<2>                          | IBUF+BUFG              | 2     |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -292,9 +296,9 @@ Timing Summary:
 Speed Grade: -3
 
    Minimum period: No path found
-   Minimum input arrival time before clock: 1.763ns
+   Minimum input arrival time before clock: 2.398ns
    Maximum output required time after clock: 0.751ns
-   Maximum combinational path delay: 3.342ns
+   Maximum combinational path delay: 3.170ns
 
 Timing Details:
 ---------------
@@ -302,14 +306,14 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'opcode<2>'
-  Total number of paths / destination ports: 49 / 1
+  Total number of paths / destination ports: 148 / 2
 -------------------------------------------------------------------------
-Offset:              1.763ns (Levels of Logic = 12)
+Offset:              2.398ns (Levels of Logic = 12)
   Source:            A<0> (PAD)
-  Destination:       carryout (LATCH)
+  Destination:       overflow (LATCH)
   Destination Clock: opcode<2> rising
 
-  Data Path: A<0> to carryout
+  Data Path: A<0> to overflow
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
@@ -322,17 +326,17 @@ Offset:              1.763ns (Levels of Logic = 12)
      MUXCY:CI->O           1   0.023   0.000  Madd_GND_4_o_GND_4_o_add_7_OUT_Madd_cy<4> (Madd_GND_4_o_GND_4_o_add_7_OUT_Madd_cy<4>)
      MUXCY:CI->O           1   0.023   0.000  Madd_GND_4_o_GND_4_o_add_7_OUT_Madd_cy<5> (Madd_GND_4_o_GND_4_o_add_7_OUT_Madd_cy<5>)
      MUXCY:CI->O           1   0.023   0.000  Madd_GND_4_o_GND_4_o_add_7_OUT_Madd_cy<6> (Madd_GND_4_o_GND_4_o_add_7_OUT_Madd_cy<6>)
-     MUXCY:CI->O           0   0.023   0.000  Madd_GND_4_o_GND_4_o_add_7_OUT_Madd_cy<7> (Madd_GND_4_o_GND_4_o_add_7_OUT_Madd_cy<7>)
-     XORCY:CI->O           1   0.370   0.295  Madd_GND_4_o_GND_4_o_add_7_OUT_Madd_xor<8> (GND_4_o_GND_4_o_add_7_OUT<8>)
-     LUT3:I2->O            2   0.097   0.000  Mmux_opcode[2]_carryout_Mux_18_o11 (opcode[2]_carryout_Mux_18_o)
-     LD:D                     -0.028          carryout
+     XORCY:CI->O           2   0.370   0.561  Madd_GND_4_o_GND_4_o_add_7_OUT_Madd_xor<7> (GND_4_o_GND_4_o_add_7_OUT<7>)
+     LUT5:I1->O            1   0.097   0.295  Mmux_opcode[2]_overflow_Mux_21_o1_SW0 (N6)
+     LUT5:I4->O            1   0.097   0.000  Mmux_opcode[2]_overflow_Mux_21_o1 (opcode[2]_overflow_Mux_21_o)
+     LD:D                     -0.028          overflow
     ----------------------------------------
-    Total                      1.763ns (1.079ns logic, 0.684ns route)
-                                       (61.2% logic, 38.8% route)
+    Total                      2.398ns (1.153ns logic, 1.245ns route)
+                                       (48.1% logic, 51.9% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'opcode<2>'
-  Total number of paths / destination ports: 1 / 1
+  Total number of paths / destination ports: 2 / 2
 -------------------------------------------------------------------------
 Offset:              0.751ns (Levels of Logic = 1)
   Source:            carryout (LATCH)
@@ -351,9 +355,9 @@ Offset:              0.751ns (Levels of Logic = 1)
 
 =========================================================================
 Timing constraint: Default path analysis
-  Total number of paths / destination ports: 560 / 9
+  Total number of paths / destination ports: 510 / 9
 -------------------------------------------------------------------------
-Delay:               3.342ns (Levels of Logic = 9)
+Delay:               3.170ns (Levels of Logic = 9)
   Source:            A<0> (PAD)
   Destination:       zero (PAD)
 
@@ -366,13 +370,13 @@ Delay:               3.342ns (Levels of Logic = 9)
      MUXCY:S->O            1   0.353   0.000  Madd_GND_4_o_GND_4_o_add_1_OUT_cy<0> (Madd_GND_4_o_GND_4_o_add_1_OUT_cy<0>)
      MUXCY:CI->O           1   0.023   0.000  Madd_GND_4_o_GND_4_o_add_1_OUT_cy<1> (Madd_GND_4_o_GND_4_o_add_1_OUT_cy<1>)
      XORCY:CI->O           1   0.370   0.556  Madd_GND_4_o_GND_4_o_add_1_OUT_xor<2> (GND_4_o_GND_4_o_add_1_OUT<2>)
-     LUT5:I1->O            2   0.097   0.688  result<2> (result_2_OBUF)
-     LUT5:I0->O            1   0.097   0.295  zero<8>_SW0 (N4)
-     LUT6:I5->O            1   0.097   0.279  zero<8> (zero_OBUF)
+     LUT5:I1->O            2   0.097   0.515  result<2> (result_2_OBUF)
+     LUT3:I0->O            1   0.097   0.295  zero<7>_SW0 (N4)
+     LUT6:I5->O            1   0.097   0.279  zero<7> (zero_OBUF)
      OBUF:I->O                 0.000          zero_OBUF (zero)
     ----------------------------------------
-    Total                      3.342ns (1.135ns logic, 2.207ns route)
-                                       (34.0% logic, 66.0% route)
+    Total                      3.170ns (1.135ns logic, 2.036ns route)
+                                       (35.8% logic, 64.2% route)
 
 =========================================================================
 
@@ -383,14 +387,14 @@ Cross Clock Domains Report:
 
 
 Total REAL time to Xst completion: 20.00 secs
-Total CPU time to Xst completion: 19.34 secs
+Total CPU time to Xst completion: 19.97 secs
  
 --> 
 
 
-Total memory usage is 594124 kilobytes
+Total memory usage is 594152 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    1 (   0 filtered)
+Number of warnings :    2 (   0 filtered)
 Number of infos    :    0 (   0 filtered)
 

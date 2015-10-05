@@ -100,13 +100,13 @@ BEGIN
 			A <= "00000000";
 			for Y in 0 to 255 loop
 				B <= "00000000";
-				A <= STD_LOGIC_VECTOR(unsigned(A) + "00000001");
 				for Z in 0 to 255 loop
 					wait for clock_period;
 					B <= STD_LOGIC_VECTOR(unsigned(B) + "00000001");
 				end loop;
-				opcode <= STD_LOGIC_VECTOR(unsigned(opcode) + "001");
+				A <= STD_LOGIC_VECTOR(unsigned(A) + "00000001");
 			end loop;
+			opcode <= STD_LOGIC_VECTOR(unsigned(opcode) + "001");
 			wait for clock_period * 2;
 		end loop;
 			

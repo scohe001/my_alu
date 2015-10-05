@@ -63,16 +63,30 @@ begin
                 temp := STD_LOGIC_VECTOR(signed('0' & A) + signed('0' & B));
                 result <= temp(n-1 downto 0);
                 carryout <= temp(n);
+					 --Check for overflow
+					 if ((A(n-1) = '0') and (b(n-1) = '0') and (temp(n-1) = '1')) or
+							((A(n-1) = '1') and (b(n-1) = '1') and (temp(n-1) = '0')) then
+					     overflow <= '1';
+					 else
+						  overflow <= '0';
+					 end if;
                 
             when "010" => --Unsigned Sub
                 temp := STD_LOGIC_VECTOR(unsigned('0' & A) + (not(unsigned('0' & B))) + 1);
                 result <= temp(n-1 downto 0);
                 carryout <= temp(n);
+					 overflow <= not(temp(n));
                 
             when "011" => --Signed Sub
                 temp := STD_LOGIC_VECTOR(signed('0' & A) + (not(signed('0' & B))) + 1);
                 result <= temp(n-1 downto 0);
                 carryout <= temp(n);
+					 if ((A(n-1) = '0') and (b(n-1) = '1') and (temp(n-1) = '1')) or
+							((A(n-1) = '1') and (b(n-1) = '0') and (temp(n-1) = '0')) then
+					     overflow <= '1';
+					 else
+						  overflow <= '0';
+					 end if;
                 
             when "100" => --Bit-wise AND
                 temp := ('0' & A) AND ('0' & B);
@@ -95,7 +109,7 @@ begin
                 
         end case;
             
-        if temp = "000000000" then
+        if temp(n-1 downto 0) = "00000000" then
             zero <= '1';
         else
             zero <= '0';
