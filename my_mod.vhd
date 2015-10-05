@@ -57,6 +57,7 @@ begin
                 temp := STD_LOGIC_VECTOR(unsigned('0' & A) + unsigned('0' & B));
                 result <= temp(n-1 downto 0);
                 carryout <= temp(n);
+					 overflow <= temp(n);
                 
             when "001" => --Signed Add
                 temp := STD_LOGIC_VECTOR(signed('0' & A) + signed('0' & B));

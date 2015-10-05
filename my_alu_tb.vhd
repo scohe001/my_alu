@@ -27,6 +27,7 @@
 --------------------------------------------------------------------------------
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
+use ieee.numeric_std.all;
  
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -65,16 +66,20 @@ ARCHITECTURE behavior OF my_alu_tb IS
    -- No clocks detected in port list. Replace <clock> below with 
    -- appropriate port name 
  
-   constant <clock>_period : time := 10 ns;
+   signal clock : std_logic;
+   constant clock_period : time := 10 ns;
  
 BEGIN
  
 	-- Instantiate the Unit Under Test (UUT)
-   uut: my PORT MAP (
-          X => X,
-          Y => Y,
-          D => D,
-          B => B
+   uut: my_alu PORT MAP (
+          A => A,
+          B => B,
+          opcode => opcode,
+          result => result,
+			 carryout => carryout,
+			 overflow => overflow,
+			 zero => zero
         );
 
    -- Clock process definitions
@@ -89,41 +94,23 @@ BEGIN
 
    -- Stimulus process
    stim_proc: process
-   begin		
-		--Hold reset state
-            X <= '0';
-            Y <= '0';
+   begin
+		opcode <= "000";
+		for X in 0 to 7 loop
+			A <= "00000000";
+			for Y in 0 to 255 loop
+				B <= "00000000";
+				A <= STD_LOGIC_VECTOR(unsigned(A) + "00000001");
+				for Z in 0 to 255 loop
+					wait for clock_period;
+					B <= STD_LOGIC_VECTOR(unsigned(B) + "00000001");
+				end loop;
+				opcode <= STD_LOGIC_VECTOR(unsigned(opcode) + "001");
+			end loop;
+			wait for clock_period * 2;
+		end loop;
+			
       wait for clock_period*10;
- 
-      -- insert stimulus here
-            --Cases
-            X <= '0';
-            Y <= '0';
-            wait for clock_period;
-            Assert ( D = '0' and B = '0' )
-                  Report "Case 0"
-                  Severity ERROR;
-						
-            X <= '0';
-            Y <= '1';
-            wait for clock_period;
-            Assert ( D = '1' and B = '1' )
-                  Report "Case 1"
-                  Severity ERROR;
-						
-				X <= '1';
-            Y <= '0';
-            wait for clock_period;
-            Assert ( D = '1' and B = '0' )
-                  Report "Case 2"
-                  Severity ERROR;
-						
-				X <= '1';
-            Y <= '1';
-            wait for clock_period;
-            Assert ( D = '0' and B = '0' )
-                  Report "Case 3"
-                  Severity ERROR;
 						
 		Report "Done with testbench." severity NOTE;
       wait;
