@@ -96,21 +96,44 @@ BEGIN
    stim_proc: process
    begin
 		opcode <= "000";
-		for X in 0 to 7 loop
-			A <= "00000000";
-			for Y in 0 to 255 loop
-				B <= "00000000";
-				for Z in 0 to 255 loop
-					wait for clock_period;
-					B <= STD_LOGIC_VECTOR(unsigned(B) + "00000001");
-				end loop;
-				A <= STD_LOGIC_VECTOR(unsigned(A) + "00000001");
-			end loop;
-			opcode <= STD_LOGIC_VECTOR(unsigned(opcode) + "001");
-			wait for clock_period * 2;
-		end loop;
-			
-      wait for clock_period*10;
+		A <= "00000000";
+		B <= "00000000";
+		wait for clock_period;
+		Assert(result = "11111111" and overflow = '0' and zero = '1')
+			Report "Unsigned addition zero error"
+			Severity ERROR;
+
+		opcode <= "000";
+		A <= "01010101";
+		B <= "10101010";
+		wait for clock_period;
+		Assert(result = "11111111" and overflow = '0' and zero = '1')
+			Report "Unsigned addition no overflow error"
+			Severity ERROR;
+		
+		opcode <= "000";
+		A <= "11111111";
+		B <= "00000010";
+		wait for clock_period;
+		Assert(result = "00000001" and overflow = '1' and zero = '1')
+			Report "Unsigned addition overflow error"
+			Severity ERROR;
+		
+		--for X in 0 to 7 loop
+		--	A <= "00000000";
+		--	for Y in 0 to 255 loop
+		--		B <= "00000000";
+		--		for Z in 0 to 255 loop
+		--			wait for clock_period;
+		--			B <= STD_LOGIC_VECTOR(unsigned(B) + "00000001");
+		--		end loop;
+		--		A <= STD_LOGIC_VECTOR(unsigned(A) + "00000001");
+		--	end loop;
+		--	opcode <= STD_LOGIC_VECTOR(unsigned(opcode) + "001");
+		--	wait for clock_period * 2;
+		--end loop;
+		--	
+      --wait for clock_period*10;
 						
 		Report "Done with testbench." severity NOTE;
       wait;

@@ -170,9 +170,14 @@ LAB11:
 LAB2:    xsi_set_current_line(112, ng0);
     t1 = (t0 + 2408U);
     t2 = *((char **)t1);
-    t1 = (t0 + 6008);
+    t4 = (8 - 1);
+    t41 = (8 - t4);
+    t42 = (t41 * 1U);
+    t43 = (0 + t42);
+    t1 = (t2 + t43);
+    t3 = (t0 + 6008);
     t44 = 1;
-    if (9U == 9U)
+    if (8U == 8U)
         goto LAB66;
 
 LAB67:    t44 = 0;
@@ -855,28 +860,28 @@ LAB61:    xsi_size_not_matching(8U, t42, 0);
     goto LAB62;
 
 LAB63:    xsi_set_current_line(113, ng0);
-    t8 = (t0 + 3976);
-    t9 = (t8 + 56U);
-    t11 = *((char **)t9);
-    t12 = (t11 + 56U);
-    t14 = *((char **)t12);
-    *((unsigned char *)t14) = (unsigned char)3;
-    xsi_driver_first_trans_fast_port(t8);
+    t9 = (t0 + 3976);
+    t11 = (t9 + 56U);
+    t12 = *((char **)t11);
+    t14 = (t12 + 56U);
+    t15 = *((char **)t14);
+    *((unsigned char *)t15) = (unsigned char)3;
+    xsi_driver_first_trans_fast_port(t9);
     goto LAB64;
 
-LAB66:    t41 = 0;
+LAB66:    t49 = 0;
 
-LAB69:    if (t41 < 9U)
+LAB69:    if (t49 < 8U)
         goto LAB70;
     else
         goto LAB68;
 
-LAB70:    t5 = (t2 + t41);
-    t6 = (t1 + t41);
-    if (*((unsigned char *)t5) != *((unsigned char *)t6))
+LAB70:    t6 = (t1 + t49);
+    t8 = (t3 + t49);
+    if (*((unsigned char *)t6) != *((unsigned char *)t8))
         goto LAB67;
 
-LAB71:    t41 = (t41 + 1);
+LAB71:    t49 = (t49 + 1);
     goto LAB69;
 
 }
