@@ -72,7 +72,7 @@ begin
 					 end if;
                 
             when "010" => --Unsigned Sub
-                temp := STD_LOGIC_VECTOR(unsigned('0' & A) + (not(unsigned('0' & B))) + 1);
+                temp := STD_LOGIC_VECTOR(unsigned('0' & A) + (not(unsigned('1' & B))) + 1);
                 result <= temp(n-1 downto 0);
                 carryout <= temp(n);
 					 overflow <= not(temp(n));

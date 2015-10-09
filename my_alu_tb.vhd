@@ -95,11 +95,14 @@ BEGIN
    -- Stimulus process
    stim_proc: process
    begin
+			---------------------------------------------------------------
+		---------------------- UNSIGNED ADD TEST ----------------------
+		---------------------------------------------------------------
 		opcode <= "000";
 		A <= "00000000";
 		B <= "00000000";
 		wait for clock_period;
-		Assert(result = "11111111" and overflow = '0' and zero = '1')
+		Assert(result = "00000000" and overflow = '0' and zero = '1')
 			Report "Unsigned addition zero error"
 			Severity ERROR;
 
@@ -107,7 +110,7 @@ BEGIN
 		A <= "01010101";
 		B <= "10101010";
 		wait for clock_period;
-		Assert(result = "11111111" and overflow = '0' and zero = '1')
+		Assert(result = "11111111" and overflow = '0' and zero = '0')
 			Report "Unsigned addition no overflow error"
 			Severity ERROR;
 		
@@ -115,11 +118,40 @@ BEGIN
 		A <= "11111111";
 		B <= "00000010";
 		wait for clock_period;
-		Assert(result = "00000001" and overflow = '1' and zero = '1')
+		Assert(result = "00000001" and overflow = '1' and zero = '0')
 			Report "Unsigned addition overflow error"
 			Severity ERROR;
 		
-		-- UNSIGNED SUB
+		---------------------------------------------------------------
+		---------------------- SIGNED ADD TEST ------------------------
+		---------------------------------------------------------------
+		opcode <= "001";
+		A <= "11111111";
+		B <= "00000001";
+		wait for clock_period;
+		Assert(result = "00000000" and overflow = '0' and zero = '1')
+			Report "Signed addition zero test error"
+			Severity ERROR;
+		
+		opcode <= "001";
+		A <= "11111111";
+		B <= "11111110";
+		wait for clock_period;
+		Assert(result = "11111101" and overflow = '0' and zero = '0')
+			Report "Signed addition negative test error"
+			Severity ERROR;
+		
+		opcode <= "001";
+		A <= "10000000";
+		B <= "11111111";
+		wait for clock_period;
+		Assert(result = "01111111" and overflow = '1' and zero = '0')
+			Report "Signed addition underflow test error"
+			Severity ERROR;
+		
+		---------------------------------------------------------------
+		--------------------- UNSIGNED SUB ----------------------------
+		---------------------------------------------------------------
 		opcode <= "010";
 		A <= "00100100";
 		B <= "00100100";
@@ -135,16 +167,10 @@ BEGIN
 		Assert(result = "01010101" and overflow = '0' and zero = '0')
 			Report "Unsigned subtraction no overflow or zero error"
 			Severity ERROR;
-		
-		opcode <= "010";
-		A <= "00000000";
-		B <= "00000001";
-		wait for clock_period;
-		Assert(result = "11111111" and overflow = '1' and zero = '1')
-			Report "Unsigned subtraction overflow error"
-			Severity ERROR;
 			
-		-- SIGNED SUB
+		---------------------------------------------------------------
+		---------------------- SIGNED SUB -----------------------------
+		---------------------------------------------------------------
 		opcode <= "011";
 		A <= "10001100";
 		B <= "10001100";
@@ -162,14 +188,16 @@ BEGIN
 			Severity ERROR;
 		
 		opcode <= "011";
-		A <= "00000000";
-		B <= "00000001";
+		A <= "11111110";
+		B <= "01111111";
 		wait for clock_period;
-		Assert(result = "11111111" and overflow = '1' and zero = '0')
+		Assert(result = "01111111" and overflow = '1' and zero = '0')
 			Report "signed subtraction overflow error"
 			Severity ERROR;
 			
-		-- BIT-WISE AND
+		---------------------------------------------------------------
+		--------------------- BIT-WISE AND ----------------------------
+		---------------------------------------------------------------
 		opcode <= "100";
 		A <= "10001100";
 		B <= "10001100";
@@ -187,7 +215,9 @@ BEGIN
 			Severity ERROR;
 		
 			
-		-- BIT-WISE OR
+		---------------------------------------------------------------
+		---------------------- BIT-WISE OR ----------------------------
+		---------------------------------------------------------------
 		opcode <= "101";
 		A <= "00000000";
 		B <= "11100111";
@@ -205,22 +235,36 @@ BEGIN
 			Severity ERROR;
 		
 		
-		--for X in 0 to 7 loop
-		--	A <= "00000000";
-		--	for Y in 0 to 255 loop
-		--		B <= "00000000";
-		--		for Z in 0 to 255 loop
-		--			wait for clock_period;
-		--			B <= STD_LOGIC_VECTOR(unsigned(B) + "00000001");
-		--		end loop;
-		--		A <= STD_LOGIC_VECTOR(unsigned(A) + "00000001");
-		--	end loop;
-		--	opcode <= STD_LOGIC_VECTOR(unsigned(opcode) + "001");
-		--	wait for clock_period * 2;
-		--end loop;
-		--	
-      --wait for clock_period*10;
-						
+		---------------------------------------------------------------
+		---------------------- BIT-WISE XOR TEST ----------------------
+		---------------------------------------------------------------
+		opcode <= "110";
+		A <= "00001100";
+		B <= "00001010";
+		wait for clock_period;
+		Assert(result = "00000110" and overflow = '0' and zero = '0')
+			Report "XOR test error"
+			Severity ERROR;
+		
+		---------------------------------------------------------------
+		---------------------- DIVIDE TEST ----------------------------
+		---------------------------------------------------------------
+		opcode <= "111";
+		A <= "10110011";
+		wait for clock_period;
+		Assert(result = "01011001" and overflow = '0' and zero = '0')
+			Report "Division test error"
+			Severity ERROR;
+			
+		opcode <= "111";
+		A <= "00000001";
+		wait for clock_period;
+		Assert(result = "00000000" and overflow = '0' and zero = '1')
+			Report "Division 0 test error"
+			Severity ERROR;
+			
+			
+		--Done
 		Report "Done with testbench." severity NOTE;
       wait;
    end process;
