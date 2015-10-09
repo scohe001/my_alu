@@ -1,0 +1,207 @@
+--------------------------------------------------------------------------------
+Release 14.6 Trace  (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+/opt/Xilinx/14.6/ISE_DS/ISE/bin/lin64/unwrapped/trce -intstyle ise -v 3 -s 3 -n
+3 -fastpaths -xml my_alu.twx my_alu.ncd -o my_alu.twr my_alu.pcf
+
+Design file:              my_alu.ncd
+Physical constraint file: my_alu.pcf
+Device,package,speed:     xc7a100t,csg324,C,-3 (PRODUCTION 1.09 2013-06-08)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:2698 - No timing constraints found, doing default enumeration.
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Setup/Hold to clock opcode<2>
+------------+------------+------------+------------+------------+------------------+--------+
+            |Max Setup to|  Process   |Max Hold to |  Process   |                  | Clock  |
+Source      | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s) | Phase  |
+------------+------------+------------+------------+------------+------------------+--------+
+A<0>        |    1.894(R)|      SLOW  |    0.187(R)|      SLOW  |opcode_2_IBUF_BUFG|   0.000|
+A<1>        |    2.280(R)|      SLOW  |   -0.168(R)|      SLOW  |opcode_2_IBUF_BUFG|   0.000|
+A<2>        |    2.358(R)|      SLOW  |    0.125(R)|      SLOW  |opcode_2_IBUF_BUFG|   0.000|
+A<3>        |    2.282(R)|      SLOW  |   -0.030(R)|      SLOW  |opcode_2_IBUF_BUFG|   0.000|
+A<4>        |    1.866(R)|      SLOW  |    0.226(R)|      SLOW  |opcode_2_IBUF_BUFG|   0.000|
+A<5>        |    2.119(R)|      SLOW  |   -0.130(R)|      SLOW  |opcode_2_IBUF_BUFG|   0.000|
+A<6>        |    1.842(R)|      SLOW  |    0.191(R)|      SLOW  |opcode_2_IBUF_BUFG|   0.000|
+A<7>        |    1.893(R)|      SLOW  |    0.338(R)|      SLOW  |opcode_2_IBUF_BUFG|   0.000|
+B<0>        |    2.367(R)|      SLOW  |   -0.198(R)|      SLOW  |opcode_2_IBUF_BUFG|   0.000|
+B<1>        |    1.646(R)|      SLOW  |    0.440(R)|      SLOW  |opcode_2_IBUF_BUFG|   0.000|
+B<2>        |    1.884(R)|      SLOW  |    0.024(R)|      SLOW  |opcode_2_IBUF_BUFG|   0.000|
+B<3>        |    1.948(R)|      SLOW  |   -0.040(R)|      SLOW  |opcode_2_IBUF_BUFG|   0.000|
+B<4>        |    1.975(R)|      SLOW  |    0.748(R)|      SLOW  |opcode_2_IBUF_BUFG|   0.000|
+B<5>        |    1.536(R)|      SLOW  |    0.581(R)|      SLOW  |opcode_2_IBUF_BUFG|   0.000|
+B<6>        |    1.428(R)|      SLOW  |    0.639(R)|      SLOW  |opcode_2_IBUF_BUFG|   0.000|
+B<7>        |    1.168(R)|      FAST  |    1.638(R)|      SLOW  |opcode_2_IBUF_BUFG|   0.000|
+opcode<0>   |    0.935(R)|      FAST  |    0.498(R)|      SLOW  |opcode_2_IBUF_BUFG|   0.000|
+opcode<1>   |    0.783(R)|      FAST  |    0.774(R)|      SLOW  |opcode_2_IBUF_BUFG|   0.000|
+------------+------------+------------+------------+------------+------------------+--------+
+
+Clock opcode<2> to Pad
+------------+-----------------+------------+-----------------+------------+------------------+--------+
+            |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                  | Clock  |
+Destination |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s) | Phase  |
+------------+-----------------+------------+-----------------+------------+------------------+--------+
+carryout    |         6.560(R)|      SLOW  |         2.915(R)|      FAST  |opcode_2_IBUF_BUFG|   0.000|
+overflow    |         6.567(R)|      SLOW  |         2.922(R)|      FAST  |opcode_2_IBUF_BUFG|   0.000|
+------------+-----------------+------------+-----------------+------------+------------------+--------+
+
+Pad to Pad
+---------------+---------------+---------+
+Source Pad     |Destination Pad|  Delay  |
+---------------+---------------+---------+
+A<0>           |result<0>      |    8.167|
+A<0>           |result<1>      |    8.249|
+A<0>           |result<2>      |    8.150|
+A<0>           |result<3>      |    8.494|
+A<0>           |result<4>      |    8.357|
+A<0>           |result<5>      |    8.684|
+A<0>           |result<6>      |    8.536|
+A<0>           |result<7>      |    8.882|
+A<0>           |zero           |    9.374|
+A<1>           |result<0>      |    7.348|
+A<1>           |result<1>      |    8.389|
+A<1>           |result<2>      |    8.449|
+A<1>           |result<3>      |    8.793|
+A<1>           |result<4>      |    8.845|
+A<1>           |result<5>      |    8.975|
+A<1>           |result<6>      |    8.827|
+A<1>           |result<7>      |    9.173|
+A<1>           |zero           |    9.665|
+A<2>           |result<1>      |    7.398|
+A<2>           |result<2>      |    8.490|
+A<2>           |result<3>      |    8.867|
+A<2>           |result<4>      |    8.821|
+A<2>           |result<5>      |    9.148|
+A<2>           |result<6>      |    9.000|
+A<2>           |result<7>      |    9.346|
+A<2>           |zero           |    9.838|
+A<3>           |result<2>      |    8.082|
+A<3>           |result<3>      |    8.713|
+A<3>           |result<4>      |    8.745|
+A<3>           |result<5>      |    9.072|
+A<3>           |result<6>      |    8.924|
+A<3>           |result<7>      |    9.270|
+A<3>           |zero           |    9.762|
+A<4>           |result<3>      |    7.056|
+A<4>           |result<4>      |    8.139|
+A<4>           |result<5>      |    8.511|
+A<4>           |result<6>      |    8.516|
+A<4>           |result<7>      |    8.854|
+A<4>           |zero           |    9.201|
+A<5>           |result<4>      |    7.651|
+A<5>           |result<5>      |    8.605|
+A<5>           |result<6>      |    8.769|
+A<5>           |result<7>      |    9.107|
+A<5>           |zero           |    9.376|
+A<6>           |result<5>      |    7.148|
+A<6>           |result<6>      |    8.459|
+A<6>           |result<7>      |    8.830|
+A<6>           |zero           |    9.099|
+A<7>           |result<6>      |    7.422|
+A<7>           |result<7>      |    8.881|
+A<7>           |zero           |    9.150|
+B<0>           |result<0>      |    8.640|
+B<0>           |result<1>      |    8.722|
+B<0>           |result<2>      |    8.623|
+B<0>           |result<3>      |    8.967|
+B<0>           |result<4>      |    8.830|
+B<0>           |result<5>      |    9.157|
+B<0>           |result<6>      |    9.009|
+B<0>           |result<7>      |    9.355|
+B<0>           |zero           |    9.847|
+B<1>           |result<1>      |    7.850|
+B<1>           |result<2>      |    7.910|
+B<1>           |result<3>      |    8.254|
+B<1>           |result<4>      |    8.109|
+B<1>           |result<5>      |    8.436|
+B<1>           |result<6>      |    8.288|
+B<1>           |result<7>      |    8.634|
+B<1>           |zero           |    9.126|
+B<2>           |result<2>      |    8.016|
+B<2>           |result<3>      |    8.393|
+B<2>           |result<4>      |    8.347|
+B<2>           |result<5>      |    8.674|
+B<2>           |result<6>      |    8.526|
+B<2>           |result<7>      |    8.872|
+B<2>           |zero           |    9.364|
+B<3>           |result<3>      |    8.379|
+B<3>           |result<4>      |    8.411|
+B<3>           |result<5>      |    8.738|
+B<3>           |result<6>      |    8.590|
+B<3>           |result<7>      |    8.936|
+B<3>           |zero           |    9.428|
+B<4>           |result<4>      |    8.350|
+B<4>           |result<5>      |    8.077|
+B<4>           |result<6>      |    8.404|
+B<4>           |result<7>      |    8.469|
+B<4>           |zero           |    8.869|
+B<5>           |result<5>      |    7.653|
+B<5>           |result<6>      |    7.965|
+B<5>           |result<7>      |    8.155|
+B<5>           |zero           |    8.424|
+B<6>           |result<6>      |    7.802|
+B<6>           |result<7>      |    7.983|
+B<6>           |zero           |    8.252|
+B<7>           |result<7>      |    7.774|
+B<7>           |zero           |    8.043|
+opcode<0>      |result<0>      |    7.511|
+opcode<0>      |result<1>      |    7.832|
+opcode<0>      |result<2>      |    7.797|
+opcode<0>      |result<3>      |    7.431|
+opcode<0>      |result<4>      |    7.761|
+opcode<0>      |result<5>      |    7.615|
+opcode<0>      |result<6>      |    7.327|
+opcode<0>      |result<7>      |    7.954|
+opcode<0>      |zero           |    8.844|
+opcode<1>      |result<0>      |    7.199|
+opcode<1>      |result<1>      |    7.363|
+opcode<1>      |result<2>      |    7.910|
+opcode<1>      |result<3>      |    7.115|
+opcode<1>      |result<4>      |    7.306|
+opcode<1>      |result<5>      |    7.806|
+opcode<1>      |result<6>      |    7.719|
+opcode<1>      |result<7>      |    7.702|
+opcode<1>      |zero           |    8.725|
+opcode<2>      |result<0>      |    7.912|
+opcode<2>      |result<1>      |    8.515|
+opcode<2>      |result<2>      |    8.362|
+opcode<2>      |result<3>      |    8.058|
+opcode<2>      |result<4>      |    8.411|
+opcode<2>      |result<5>      |    8.456|
+opcode<2>      |result<6>      |    8.124|
+opcode<2>      |result<7>      |    8.947|
+opcode<2>      |zero           |    9.527|
+---------------+---------------+---------+
+
+
+Analysis completed Fri Oct  9 12:45:37 2015 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 764 MB
+
+
+

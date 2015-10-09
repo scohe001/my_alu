@@ -7,8 +7,8 @@ Parsing VHDL file "/home/csmajs/scohe001/my_alu/my_mod.vhd" into library work
 Parsing VHDL file "/home/csmajs/scohe001/my_alu/my_alu_tb.vhd" into library work
 Starting static elaboration
 Completed static elaboration
-Fuse Memory Usage: 95784 KB
-Fuse CPU Usage: 2080 ms
+Fuse Memory Usage: 95788 KB
+Fuse CPU Usage: 2340 ms
 Compiling package standard
 Compiling package std_logic_1164
 Compiling package numeric_std
@@ -18,6 +18,6 @@ Time Resolution for simulation is 1ps.
 Waiting for 1 sub-compilation(s) to finish...
 Compiled 6 VHDL Units
 Built simulation executable /home/csmajs/scohe001/my_alu/my_alu_tb_isim_beh.exe
-Fuse Memory Usage: 1189808 KB
-Fuse CPU Usage: 2280 ms
-GCC CPU Usage: 3880 ms
+Fuse Memory Usage: 1189828 KB
+Fuse CPU Usage: 2590 ms
+GCC CPU Usage: 470 ms

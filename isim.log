@@ -20,7 +20,5 @@ Time resolution is 1 ps
 # run 1000 ns
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
-at 10 ns: Error: Unsigned addition zero error
-at 20 ns: Error: Unsigned addition no overflow error
-at 30 ns: Error: Unsigned addition overflow error
-at 30 ns: Note: Done with testbench. (/my_alu_tb/).
+at 90 ns: Note: Done with testbench. (/my_alu_tb/).
+# exit 0

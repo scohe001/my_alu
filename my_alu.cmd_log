@@ -22,3 +22,8 @@ xst -intstyle ise -ifn "/home/csmajs/scohe001/my_alu/my_alu.xst" -ofn "/home/csm
 xst -intstyle ise -ifn "/home/csmajs/scohe001/my_alu/my_alu.xst" -ofn "/home/csmajs/scohe001/my_alu/my_alu.syr" 
 xst -intstyle ise -ifn "/home/csmajs/scohe001/my_alu/my_alu.xst" -ofn "/home/csmajs/scohe001/my_alu/my_alu.syr" 
 xst -intstyle ise -ifn "/home/csmajs/scohe001/my_alu/my_alu.xst" -ofn "/home/csmajs/scohe001/my_alu/my_alu.syr" 
+xst -intstyle ise -ifn "/home/csmajs/scohe001/my_alu/my_alu.xst" -ofn "/home/csmajs/scohe001/my_alu/my_alu.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc7a100t-csg324-3 my_alu.ngc my_alu.ngd  
+map -intstyle ise -p xc7a100t-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o my_alu_map.ncd my_alu.ngd my_alu.pcf 
+par -w -intstyle ise -ol high -mt off my_alu_map.ncd my_alu.ncd my_alu.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml my_alu.twx my_alu.ncd -o my_alu.twr my_alu.pcf 

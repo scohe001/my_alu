@@ -91,18 +91,22 @@ begin
             when "100" => --Bit-wise AND
                 temp := ('0' & A) AND ('0' & B);
                 result <= A AND B;
+					 overflow <= '0';
                 
             when "101" => --Bit-wise OR
                 temp := ('0' & A) OR ('0' & B);
                 result <= A OR B;
+					 overflow <= '0';
                 
             when "110" => --Bit-wise XOR
                 temp := ('0' & A) XOR ('0' & B);
                 result <= A XOR B;
+					 overflow <= '0';
                 
             when "111" => --Divide A by 2 (right shift)
                 temp := STD_LOGIC_VECTOR(shift_right(unsigned('0' & A), 1));
                 result <= temp(n-1 downto 0);
+					 overflow <= '0';
 					 
 				when others =>
 					 --THINGS
