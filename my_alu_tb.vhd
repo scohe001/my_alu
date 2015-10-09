@@ -119,6 +119,92 @@ BEGIN
 			Report "Unsigned addition overflow error"
 			Severity ERROR;
 		
+		-- UNSIGNED SUB
+		opcode <= "010";
+		A <= "00100100";
+		B <= "00100100";
+		wait for clock_period;
+		Assert(result = "11111111" and overflow = '0' and zero = '1')
+			Report "Unsigned subtraction zero error"
+			Severity ERROR;
+
+		opcode <= "010";
+		A <= "11111111";
+		B <= "10101010";
+		wait for clock_period;
+		Assert(result = "01010101" and overflow = '0' and zero = '0')
+			Report "Unsigned subtraction no overflow or zero error"
+			Severity ERROR;
+		
+		opcode <= "010";
+		A <= "00000000";
+		B <= "00000001";
+		wait for clock_period;
+		Assert(result = "11111111" and overflow = '1' and zero = '1')
+			Report "Unsigned subtraction overflow error"
+			Severity ERROR;
+			
+		-- SIGNED SUB
+		opcode <= "011";
+		A <= "10001100";
+		B <= "10001100";
+		wait for clock_period;
+		Assert(result = "11111111" and overflow = '0' and zero = '1')
+			Report "signed subtraction zero error"
+			Severity ERROR;
+
+		opcode <= "011";
+		A <= "11111111";
+		B <= "10101010";
+		wait for clock_period;
+		Assert(result = "01010101" and overflow = '0' and zero = '0')
+			Report "signed subtraction no overflow or zero error"
+			Severity ERROR;
+		
+		opcode <= "011";
+		A <= "00000000";
+		B <= "00000001";
+		wait for clock_period;
+		Assert(result = "11111111" and overflow = '1' and zero = '0')
+			Report "signed subtraction overflow error"
+			Severity ERROR;
+			
+		-- BIT-WISE AND
+		opcode <= "100";
+		A <= "10001100";
+		B <= "10001100";
+		wait for clock_period;
+		Assert(result = "10001100" and overflow = '0' and zero = '0')
+			Report "Bit-Wise And ERROR: zero flag raised when zero flag should be down"
+			Severity ERROR;
+
+		opcode <= "100";
+		A <= "01010101";
+		B <= "10101010";
+		wait for clock_period;
+		Assert(result = "00000000" and overflow = '0' and zero = '1')
+			Report "Bit-Wise And ERROR: zero flag down when zero flag should be raised"
+			Severity ERROR;
+		
+			
+		-- BIT-WISE OR
+		opcode <= "101";
+		A <= "00000000";
+		B <= "11100111";
+		wait for clock_period;
+		Assert(result = "11100111" and overflow = '0' and zero = '0')
+			Report "Bit-Wise Or ERROR: zero flag should be down when zero flag is raised"
+			Severity ERROR;
+
+		opcode <= "101";
+		A <= "00000000";
+		B <= "00000000";
+		wait for clock_period;
+		Assert(result = "00000000" and overflow = '0' and zero = '0')
+			Report "Bit-Wise Or ERROR: zero flag should raised when flag is down"
+			Severity ERROR;
+		
+		
 		--for X in 0 to 7 loop
 		--	A <= "00000000";
 		--	for Y in 0 to 255 loop
