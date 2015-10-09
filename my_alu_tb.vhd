@@ -124,7 +124,7 @@ BEGIN
 		A <= "00100100";
 		B <= "00100100";
 		wait for clock_period;
-		Assert(result = "11111111" and overflow = '0' and zero = '1')
+		Assert(result = "00000000" and overflow = '0' and zero = '1')
 			Report "Unsigned subtraction zero error"
 			Severity ERROR;
 
@@ -149,7 +149,7 @@ BEGIN
 		A <= "10001100";
 		B <= "10001100";
 		wait for clock_period;
-		Assert(result = "11111111" and overflow = '0' and zero = '1')
+		Assert(result = "00000000" and overflow = '0' and zero = '1')
 			Report "signed subtraction zero error"
 			Severity ERROR;
 
@@ -200,7 +200,7 @@ BEGIN
 		A <= "00000000";
 		B <= "00000000";
 		wait for clock_period;
-		Assert(result = "00000000" and overflow = '0' and zero = '0')
+		Assert(result = "00000000" and overflow = '0' and zero = '1')
 			Report "Bit-Wise Or ERROR: zero flag should raised when flag is down"
 			Severity ERROR;
 		
