@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2015-10-09T12:33:58</DateModified>
+  <DateModified>2015-10-09T12:26:29</DateModified>
   <ModuleName>my_alu</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
-  <SavedFilePath>/class/classes/wfink001/my_alu/iseconfig/my_alu.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>/class/classes/wfink001/my_alu</ImplementationReportsDirectory>
-  <DateInitialized>2015-10-09T12:33:58</DateInitialized>
+  <SavedFilePath>/home/csmajs/scohe001/my_alu/iseconfig/my_alu.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>/home/csmajs/scohe001/my_alu</ImplementationReportsDirectory>
+  <DateInitialized>2015-10-09T12:26:29</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
  <body>
