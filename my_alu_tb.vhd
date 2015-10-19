@@ -45,7 +45,7 @@ ARCHITECTURE behavior OF my_alu_tb IS
          A : IN  std_logic_vector(7 downto 0);
          B : IN  std_logic_vector(7 downto 0);
          opcode : IN  std_logic_vector(2 downto 0);
-         result : OUT  std_logic_vector(7 downto 0);
+         result : OUT  std_logic_vector(11 downto 0);
          carryout : OUT  std_logic;
          overflow : OUT  std_logic;
          zero : OUT  std_logic
@@ -59,7 +59,7 @@ ARCHITECTURE behavior OF my_alu_tb IS
    signal opcode : std_logic_vector(2 downto 0) := (others => '0');
 
  	--Outputs
-   signal result : std_logic_vector(7 downto 0);
+   signal result : std_logic_vector(11 downto 0);
    signal carryout : std_logic;
    signal overflow : std_logic;
    signal zero : std_logic;
