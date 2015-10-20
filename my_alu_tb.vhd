@@ -99,14 +99,37 @@ BEGIN
 		---------------------- UNSIGNED ADD TEST ----------------------
 		---------------------------------------------------------------
 		opcode <= "000";
-		A <= "00010110";
-		B <= "00100100";
+		A <= "00000000";
+		B <= "00000000";
 		wait for clock_period;
 		Assert(result = "00000000" and overflow = '0' and zero = '1')
 			Report "Unsigned addition zero error"
 			Severity ERROR;
 
+		opcode <= "000";
+		A <= "00010001";
+		B <= "00001001";
+		wait for clock_period;
+		Assert(result = "00100000" and overflow = '0' and zero = '1')
+			Report "Unsigned addition zero error"
+			Severity ERROR;
 
+		opcode <= "000";
+		A <= "01000010";
+		B <= "00001001";
+		wait for clock_period;
+		Assert(result = "01110110" and overflow = '0' and zero = '1')
+			Report "Unsigned addition zero error"
+			Severity ERROR;
+			
+		opcode <= "000";
+		A <= "01010001";
+		B <= "01011001";
+		wait for clock_period;
+		Assert(result = "01110110" and overflow = '0' and zero = '1')
+			Report "Unsigned addition zero error"
+			Severity ERROR;
+		
 		wait for clock_period;
 		Assert(result = "00000001" and overflow = '1' and zero = '0')
 				

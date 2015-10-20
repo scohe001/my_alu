@@ -56,6 +56,7 @@
              variable B2 : STD_LOGIC_VECTOR(n - 1 downto 0);
              variable num1 : integer;
              variable num2 : integer;
+				 variable holder : integer;
              
         begin
 				num1 := 0;
@@ -126,16 +127,21 @@
                    
             end case;
 				
-            tresult := STD_LOGIC_VECTOR(to_unsigned(0, n+3));
-				for I in 0 to 2 loop
-					tresult(0) := not(temp(n));
-				   tresult := STD_LOGIC_VECTOR(unsigned(tresult) * 2);
-					temp := STD_LOGIC_VECTOR(unsigned(temp) * 2);
-					 --for X in 0 to ((n/4)-1) loop
-					--	if (unsigned(tresult((3+(4*(((n/4)-1)-X))) downto (4*(((n/4)-1)-X)))) >= 5) then
-					 --    tresult(n downto (n-X)) := STD_LOGIC_VECTOR(unsigned(tresult(n downto (n-X))) + 3);
-					--	end if;
-					 --end loop;
+            tresult := STD_LOGIC_VECTOR(to_unsigned(0, n+4));
+				for I in 0 to n loop
+				   tresult := STD_LOGIC_VECTOR(unsigned(tresult) + unsigned(tresult));
+					tresult(0) := temp(n);
+					temp:= STD_LOGIC_VECTOR(unsigned(temp) + unsigned(temp));
+					
+					if (I /= n) then
+						holder := (n/4)-1;
+						for X in 0 to holder loop
+							if (to_integer(unsigned(tresult((3+(4*(holder-X))) downto (4*(holder-X))))) >= 5) then
+								tresult((3+(4*(holder-X))) downto (4*(holder-X))) := 
+											STD_LOGIC_VECTOR(unsigned(tresult((3+(4*(holder-X))) downto (4*(holder-X)))) + 3);
+							end if;
+						end loop;
+					end if;
 				end loop;
 				
 				result <= tresult;
